@@ -1,39 +1,39 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace SpotifyAPI.Models
+namespace back.Models
 {
-    public class User
+    public class Artist
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
 
-        [BsonElement("title")]
-        public string Title { get; set; } = null!;
+        [BsonElement("name")]
+        public string Name { get; set; } = null!;
 
-        [BsonElement("artist")]
-        public string Artist { get; set; } = null!;
+        [BsonElement("bio")]
+        public string? Bio { get; set; }
 
-        [BsonElement("album")]
-        public string Album { get; set; } = null!;
-
-        [BsonElement("duration")]
-        public int Duration { get; set; }
+        [BsonElement("country")]
+        public string? Country { get; set; }
 
         [BsonElement("genre")]
-        public string Genre { get; set; } = DateTime.UtcNow;
+        public string? Genre { get; set; }
 
-        [BsonElement("releaseDate")]
-        public DateTime? ReleaseDate { get; set; }
+        [BsonElement("imageUrl")]
+        public string? ImageUrl { get; set; }
 
-        [BsonElement("audioUrl")]
-        public string AudioUrl { get; set; } = false;
+        [BsonElement("verified")]
+        public bool Verified { get; set; } = false;
 
-        [BsonElement("coverUrl")]
-        public string CoverUrl { get; set; } = false;
+        [BsonElement("monthlyListeners")]
+        public int MonthlyListeners { get; set; } = 0;
 
         [BsonElement("createdAt")]
-        public dataTime CreatedAt { get; set; } = false;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        [BsonElement("updatedAt")]
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     }
 }
